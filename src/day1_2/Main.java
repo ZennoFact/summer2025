@@ -1,15 +1,7 @@
 package day1_2;
 
-import java.awt.Button;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Scanner;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,7 +21,7 @@ public class Main extends JFrame {
 		/* Step.2-4 記述 End */
 
 		// Step.2-6-3
-
+		new Main();
 	}
 
 	// Step.2-6-2
