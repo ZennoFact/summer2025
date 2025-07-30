@@ -23,42 +23,17 @@ public class Main extends JFrame {
 
 	/* Step.3-5-1 end */
 	public static void main(String[] args) {
-//		System.out.println("Hello World");
-//
-//		/* Step.2-5 記述　Start */
-//		Circle c1 = new Circle(4, 10, 2);
-//		c1.draw();
-//		Rect r1 = new Rect(30, 64, 3, 5);
-//		System.out.println(r1);
-//		/* Step.2-5 記述 End */
-//
-//
-//		new Main();
+		System.out.println("Hello World");
 
-		// FizzBuzzについて
-		System.out.println("FizzBuzz start!");
-		System.out.print("Enter the number of the maximum... > ");
-		Scanner scanner = new Scanner(System.in);
-		int max = scanner.nextInt();
-		for (int i = 1; i <= max; i++) {
-			String result = "";
+		/* Step.2-5 記述　Start */
+		Circle c1 = new Circle(4, 10, 2);
+		c1.draw();
+		Rect r1 = new Rect(30, 64, 3, 5);
+		System.out.println(r1);
+		/* Step.2-5 記述 End */
 
-			if (i % 3 == 0)
-				result += "Fizz";
-			if (i % 5 == 0)
-				result += "Buzz";
-			System.out.println(result.isEmpty() ? i : result);
-		}
 
-//		for(int i = 1; i <= max; i++) {
-//		boolean isFizz = i % 3 == 0;
-//		boolean isBuzz = i % 5 == 0;
-//
-//		if(isFizz && isBuzz) System.out.println("FizzBuzz");
-//		else if(isFizz) System.out.println("Fizz");
-//		else if(isBuzz) System.out.println("Buzz");
-//		else System.out.println(i);
-//	}
+		new Main();
 	}
 
 	public Main() {

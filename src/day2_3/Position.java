@@ -1,4 +1,4 @@
-package day1_3;
+package day2_3;
 
 // Step.2-3 クラス
 public class Position {

@@ -3,10 +3,10 @@ package day1_2;
 
 // Step.2-5
 public class Rect extends Figure {
-	private int width;
-	private int height;
+	private double width;
+	private double height;
 
-	public Rect(int x, int y, int width, int height) {
+	public Rect(double x, double y, double width, double height) {
 		super(x, y);
 		this.width = width;
 		this.height = height;

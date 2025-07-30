@@ -2,15 +2,15 @@ package day1_2;
 
 // Step.2-1 抽象クラス
 public abstract class Figure {
-//	private int x;
-//	private int y;
+//	private double x;
+//	private double y;
 	protected Position position;
 
 	public Figure() {
 		this(0, 0);
 	}
 
-	public Figure(int x, int y) {
+	public Figure(double x, double y) {
 		this.position = new Position(x, y);
 //		this(new Position(x, y));
 	}

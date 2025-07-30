@@ -2,9 +2,9 @@ package day1_3;
 
 // Step.2-2 クラス
 public class Circle extends Figure {
-	private int r;
+	private double r;
 
-	public Circle(int x, int y, int r) {
+	public Circle(double x, double y, double r) {
 		super(x, y);
 		this.r = r;
 	}

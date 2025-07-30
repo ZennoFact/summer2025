@@ -1,11 +1,18 @@
-package day1_2;
+package day2_3;
 
-// Step.2-2 クラス
+import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
+
 public class Circle extends Figure {
 	private double r;
 
 	public Circle(double x, double y, double r) {
 		super(x, y);
+		this.r = r;
+	}
+
+	public Circle(double x, double y, double vx, double vy, double r) {
+		super(x, y, vx, vy);
 		this.r = r;
 	}
 
@@ -15,9 +22,12 @@ public class Circle extends Figure {
 	}
 
 	@Override
+	public void draw(Graphics2D g2) {
+		g2.fill(new Ellipse2D.Double(position.getX(), position.getY(), r, r));
+	}
+
+	@Override
 	public String toString() {
-//		return "(x: " + position.getX() + ", y: " + position.getY() +")　AREA: " + Math.pow(r, 2) * Math.PI;
-		// 最後に改造
 		return super.toString() +"　AREA: " + Math.pow(r, 2) * Math.PI;
 	}
 }
