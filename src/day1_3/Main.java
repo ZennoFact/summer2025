@@ -1,6 +1,5 @@
 package day1_3;
 
-import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
