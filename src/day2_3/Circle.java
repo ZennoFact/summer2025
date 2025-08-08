@@ -1,5 +1,6 @@
 package day2_3;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 
@@ -11,8 +12,18 @@ public class Circle extends Figure {
 		this.r = r;
 	}
 
+	public Circle(double x, double y, double r, Color color) {
+		super(x, y, color);
+		this.r = r;
+	}
+
 	public Circle(double x, double y, double vx, double vy, double r) {
 		super(x, y, vx, vy);
+		this.r = r;
+	}
+
+	public Circle(double x, double y, double vx, double vy, double r, Color color) {
+		super(x, y, vx, vy, color);
 		this.r = r;
 	}
 

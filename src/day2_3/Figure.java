@@ -1,24 +1,36 @@
 package day2_3;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 public abstract class Figure {
 	protected double vx;
 	protected double vy;
 	protected Position position;
+	protected Color color;
 
 	public Figure() {
 		this(0, 0);
 	}
 
 	public Figure(double x, double y) {
-		this(x, y, 0, 0);
+		this(x, y, 0, 0, Color.BLACK);
+	}
+
+
+	public Figure(double x, double y, Color color) {
+		this(x, y, 0, 0, color);
 	}
 
 	public Figure(double x, double y, double vx, double vy) {
+		this(x, y, 0, 0, Color.BLACK);
+	}
+
+	public Figure(double x, double y, double vx, double vy, Color color) {
 		this.position = new Position(x, y);
 		this.vx = vx;
 		this.vy = vy;
+		this.color = color;
 	}
 
 	public Figure(Position position) {
