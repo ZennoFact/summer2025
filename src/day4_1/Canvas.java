@@ -3,17 +3,15 @@ package day4_1;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.io.Console;
+
 
 import javax.swing.JPanel;
 
 // Graphics2DはShapeを描きます。fillとdrawを使い分けていきましょう。
-public class Canvas extends JPanel {
+public class Canvas extends JPanel implements MouseListener, MouseMotionListener {
 	private Figure[] particles;
 
 	public Canvas(int width, int height) {
@@ -32,50 +30,9 @@ public class Canvas extends JPanel {
 		}
 
 		// e.getPoint()メソッドで，マウス座標を取得可能
-		addMouseListener(new MouseListener() {
-			// 使わなくてもメソッドを書かないといけないのは，抽象化した状態では実装できないから
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				System.out.println("mouse released");
-			}
+		addMouseListener(this);
 
-			@Override
-			public void mousePressed(MouseEvent e) {
-				System.out.println("mouse pressed");
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				System.out.println("mouse exited");
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				System.out.println("mouse entered");
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(e.getClickCount() == 1) { // シングルクリックを想定
-					System.out.print("mouse clicked: ");
-					System.out.println(e.getPoint());
-				}
-			}
-		});
-
-		addMouseMotionListener(new MouseMotionListener() {
-			@Override
-			public void mouseMoved(MouseEvent e) {
-				System.out.print("mouse moved: ");
-				System.out.println(e.getPoint());
-			}
-
-			@Override
-			public void mouseDragged(MouseEvent e) {
-				System.out.print("mouse dragged: ");
-				System.out.println(e.getPoint());
-			}
-		});
+		addMouseMotionListener(this);
 	}
 
 	@Override
@@ -122,5 +79,51 @@ public class Canvas extends JPanel {
 				}
 			}
 		}
+	}
+
+
+	// 使わなくてもメソッドを書かないといけないのは，抽象化した状態では実装できないから
+	//　e.getPoint()メソッドで，マウス座標を取得可能
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		System.out.print("mouse dragged: ");
+		System.out.println(e.getPoint());
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		System.out.print("mouse moved: ");
+		System.out.println(e.getPoint());
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if(e.getClickCount() == 1) { // シングルクリックを想定
+			System.out.print("mouse clicked: ");
+			System.out.println(e.getPoint());
+		} else if(2 <= e.getClickCount()) {
+			System.out.println("Double click!!");
+		}
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		System.out.println("mouse pressed");
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		System.out.println("mouse released");
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		System.out.println("mouse entered");
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		System.out.println("mouse exited");
 	}
 }
