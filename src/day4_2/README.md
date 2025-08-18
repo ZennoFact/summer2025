@@ -1,36 +1,11 @@
-# Day4-1
+# Day4-2
 
 プログラムにユーザーの操作（イベント）を検知して動く仕組みを追加する
 
-## ActionListener と MouseListener と MouseMotionListener
+## MouseEventのパラメータから取得できる情報
 
-JavaScriptはなんでもEventListenerでイベント（操作等の出来事）を取得できるけれど，Javaはそんなことなく細かく決まっています。
-この〇〇Listenerはイベントの監視を行っていて，監視対象のイベントが発生したら，その後どうするかを定義できます。
-雑に説明すると **イベントの発生をきっかけに処理を始めてなんやかんやする** のを **「イベントドリブン（イベント駆動）」** と言ったりします。
-※なお，マウスホイールも別途イベントリスナーが設定されています。恐ろしい。
+[ドキュメント](https://docs.oracle.com/javase/jp/17/docs/api/java.desktop/java/awt/event/MouseEvent.html#%3Cinit%3E(java.awt.Component,int,long,int,int,int,int,boolean))を見に行くとか，**F3**を押してみるとか,**入力補完を眺める**とか色々。とりあえず見てみましょうか。
 
+## 動作にはパラメータも必要
 
-## ActionListener
-ボタンなどの操作する前提のUIコンポーネントに設置します。より詳しい例をあげると，JButtonのインスタンスにはActionListenerを設置することでクリックのイベントが取得できるようになります。これはJPanel等には適用できません。
-
-## MouseListener
-JPanel等でも取得できる，マウス関連のイベントです。以下の内容が含まれます。
-
-- mouseClicked：クリックされた
-- mouseEntered：画面内にマウスが入った
-- mouseExited：画面からマウスが出た
-- mousePressed：マウスのボタンが押された
-- mouseReleased：マウスのボタンが離された
-
-## MouseMotionListener
-MouseListenerで取れない，動きに関するマウスのイベントです。以下の内容が含まれます。
-
-- mouseMoved：マウスが動いた
-- mouseDragged：マウスがドラッグされた
-
-それぞれの処理で，Eventクラスの「**e**」という変数を取ることになります。Eventクラスにはイベントにまつわる様々なデータが保管されています。
-
- ## イベントリスナーの使い方
- `add〇〇Listener（対応するイベントリスナーのインスタンス）` が基本形です。
-Javaのクラスは多重継承が不可のためインタフェースというおもしろ要素を持っているで使ってみましょう。Canvasクラスにインターフェイスを実装していきます。  
-実際の使い方はサンプルのコードを参照しながら学んでいきましょう。
+とはいえ，サンプルで確認をして，まずはこんなこともできるんだくらいから始めていけると良いなと思います。

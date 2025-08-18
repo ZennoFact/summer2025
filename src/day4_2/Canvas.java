@@ -12,10 +12,18 @@ import javax.swing.JPanel;
 
 public class Canvas extends JPanel implements MouseListener, MouseMotionListener {
 	private Figure[] particles;
+	// フィールドを増やして状況を管理する。
+	private boolean isSepareate;
+	private Position mousePosition;
+	private final double R;
 
 	public Canvas(int width, int height) {
 		this.setSize(width, height);
 		particles = new Figure[200];
+		mousePosition = new Position();
+
+		// 背景色を変更
+		setBackground(new Color(24, 24, 24));
 
 		int i = 0;
 		for (; i < particles.length / 2; i++) {
@@ -28,6 +36,10 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 
 		addMouseListener(this);
 		addMouseMotionListener(this);
+
+		isSepareate = false;
+		mousePosition = new Position();
+		R = 50;
 	}
 
 	@Override
@@ -39,7 +51,12 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 		int h = this.getHeight();
 
 		for (int i = 0; i < particles.length; i++) {
-			particles[i].update();
+			// Figureクラスにも修正をかけて，動作を変更
+			if(isSepareate) {
+				particles[i].update(mousePosition, R);
+			} else {
+				particles[i].update();
+			}
 
 			if(particles[i].position.getX() < 0) particles[i].position.setX(w);
 			else if(w < particles[i].position.getX()) particles[i].position.setX(0);
@@ -84,29 +101,33 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		System.out.print("mouse moved: ");
-		System.out.println(e.getPoint());
+		mousePosition.setX(e.getPoint().getX());
+		mousePosition.setY(e.getPoint().getY());
+
+//		System.out.print("mouse moved: ");
+//		System.out.println(mousePosition);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(e.getClickCount() == 1) {
-			System.out.print("mouse clicked: ");
-			System.out.println(e.getPoint());
+			// クリックするたびに状態を変更
+			isSepareate = !isSepareate;
+			System.out.println("isSepareate? > " + isSepareate);
 		} else if(2 <= e.getClickCount()) {
-			System.out.println("Double click!!");
+			System.out.println("Double clicked!!");
 		}
 
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		System.out.println("mouse pressed");
+//		System.out.println("mouse pressed");
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		System.out.println("mouse released");
+//		System.out.println("mouse released");
 	}
 
 	@Override

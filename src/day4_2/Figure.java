@@ -45,6 +45,23 @@ public abstract class Figure {
 		position.add(vx, vy);
 	}
 
+	// オーバーロードの実行
+	public void update(Position target, double r) {
+		this.update();
+
+		double distance = getDistance(target);
+		if(distance < r)  {
+			// 出でよ，三角関数。atan2で角度を求める
+			double radian = Math.atan2(target.getY() - this.position.getY(), target.getX() - this.position.getX());
+
+			// 角度と距離から座標を求める
+			double newX = Math.cos(radian) * -r;
+			double newY = Math.sin(radian) * -r;
+			// 結果，いける。
+			this.position.set(newX + target.getX(), newY + target.getY());
+		}
+	}
+
 	public abstract void draw();
 	public abstract void draw(Graphics2D g2);
 
@@ -54,6 +71,11 @@ public abstract class Figure {
 	}
 
 	public double getDistance(Figure target) {
-		return Math.sqrt(Math.pow(this.position.getX() - target.position.getX(), 2) + Math.pow(this.position.getY() - target.position.getY(), 2));
+		return this.getDistance(target.position);
+	}
+
+	// こっちも改造してやれ
+	public double getDistance(Position target) {
+		return Math.sqrt(Math.pow(this.position.getX() - target.getX(), 2) + Math.pow(this.position.getY() - target.getY(), 2));
 	}
 }

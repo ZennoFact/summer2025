@@ -46,4 +46,10 @@ public class Position {
 	public double getY() {
 		return y;
 	}
+
+	// デバッグのために追記
+	@Override
+	public String toString() {
+		return "(" + getX() + ", " + getY() + ")";
+	}
 }
