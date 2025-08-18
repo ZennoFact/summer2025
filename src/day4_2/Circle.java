@@ -1,4 +1,4 @@
-package day4_1;
+package day4_2;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

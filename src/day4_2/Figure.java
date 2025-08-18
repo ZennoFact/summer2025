@@ -1,4 +1,4 @@
-package day3_3;
+package day4_2;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -53,7 +53,6 @@ public abstract class Figure {
 		return "(x: " + position.getX() + ", y: " + position.getY() +")";
 	}
 
-	// 追加
 	public double getDistance(Figure target) {
 		return Math.sqrt(Math.pow(this.position.getX() - target.position.getX(), 2) + Math.pow(this.position.getY() - target.position.getY(), 2));
 	}

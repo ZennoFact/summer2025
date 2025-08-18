@@ -1,4 +1,4 @@
-package day3_3;
+package day4_2;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -29,7 +29,6 @@ public class Main extends JFrame implements Runnable {
 		contentPane.add(mainPanel);
 
 		setVisible(true);
-
         new Timer(16, (ActionEvent e) -> {
             mainPanel.repaint();
         }).start();

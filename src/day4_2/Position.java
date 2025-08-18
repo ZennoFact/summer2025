@@ -1,4 +1,4 @@
-package day3_3;
+package day4_2;
 
 public class Position {
 	private double x;

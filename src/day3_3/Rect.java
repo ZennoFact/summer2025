@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 
-// Step.2-5
 public class Rect extends Figure {
 	private double width;
 	private double height;

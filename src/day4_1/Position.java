@@ -1,6 +1,5 @@
 package day4_1;
 
-// Step.2-3 クラス
 public class Position {
 	private double x;
 	private double y;

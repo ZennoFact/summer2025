@@ -1,4 +1,4 @@
-package day4_1;
+package day4_2;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -10,7 +10,6 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JPanel;
 
-// implementsでインタフェースを関連づける。で「,」で複数個を指定することが可能。
 public class Canvas extends JPanel implements MouseListener, MouseMotionListener {
 	private Figure[] particles;
 
@@ -27,7 +26,6 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 			particles[i] = new Rect(Math.random() * width, Math.random() * height, (Math.random() - 0.5) * 3, (Math.random() - 0.5) * 3, 8, 8, new Color(255, 150, 255));
 		}
 
-		//　add〇〇Listener(インスタンス)で設定していくが，今回はこのCanvasクラスに実装しているため，thisを指定すればOK
 		addMouseListener(this);
 		addMouseMotionListener(this);
 	}
@@ -78,9 +76,6 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 		}
 	}
 
-
-	// 使わなくてもメソッドを書かないといけないのは，抽象化した状態では実装できないから
-	//　e.getPoint()メソッドで，マウス座標を取得可能
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		System.out.print("mouse dragged: ");
@@ -95,7 +90,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(e.getClickCount() == 1) { // シングルクリックを想定
+		if(e.getClickCount() == 1) {
 			System.out.print("mouse clicked: ");
 			System.out.println(e.getPoint());
 		} else if(2 <= e.getClickCount()) {

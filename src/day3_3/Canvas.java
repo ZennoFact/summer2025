@@ -7,7 +7,6 @@ import java.io.Console;
 
 import javax.swing.JPanel;
 
-// Graphics2DはShapeを描きます。fillとdrawを使い分けていきましょう。
 public class Canvas extends JPanel {
 	private Figure[] particles;
 
@@ -15,13 +14,12 @@ public class Canvas extends JPanel {
 		this.setSize(width, height);
 		particles = new Figure[200];
 
-		// TODO: 小さいものは速度を落としたら，遠近感出るかも
 		int i = 0;
 		for (; i < particles.length / 2; i++) {
 			particles[i] = new Circle(Math.random() * width , Math.random() * height, (Math.random() - 0.5) * 3, (Math.random() - 0.5) * 3, 8, Color.PINK);
 		}
 
-		// 追加してみる
+		// for文のiの初期化って，実は必須ではなかったりする。むしろ色々省略できるので，これをチャンスに遊びたい。
 		for (; i < particles.length; i++) {
 			particles[i] = new Rect(Math.random() * width, Math.random() * height, (Math.random() - 0.5) * 3, (Math.random() - 0.5) * 3, 8, 8, new Color(255, 150, 255));
 		}

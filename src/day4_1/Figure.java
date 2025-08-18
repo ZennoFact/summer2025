@@ -48,14 +48,11 @@ public abstract class Figure {
 	public abstract void draw();
 	public abstract void draw(Graphics2D g2);
 
-
-	// 最後に改造
 	@Override
 	public String toString() {
 		return "(x: " + position.getX() + ", y: " + position.getY() +")";
 	}
 
-	// 追加
 	public double getDistance(Figure target) {
 		return Math.sqrt(Math.pow(this.position.getX() - target.position.getX(), 2) + Math.pow(this.position.getY() - target.position.getY(), 2));
 	}

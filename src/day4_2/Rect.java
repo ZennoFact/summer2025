@@ -1,9 +1,10 @@
-package day4_1;
+package day4_2;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 
+// Step.2-5
 public class Rect extends Figure {
 	private double width;
 	private double height;
@@ -37,6 +38,7 @@ public class Rect extends Figure {
 		System.out.println(this);
 	}
 
+	// 位置がずれるので修正
 	@Override
 	public void draw(Graphics2D g2) {
 		g2.fill(new Rectangle2D.Double(position.getX() - width / 2, position.getY() - height / 2, width, height));

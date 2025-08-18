@@ -9,7 +9,6 @@ import javax.swing.Timer;
 
 // JFrame(ウィンドウ)を継承して，オリジナルのアプリケーションを作る
 public class Main extends JFrame implements Runnable {
-	// フィールドを持たせる。特に外部に公開する必要がないものはprivateで
 	private JPanel mainPanel;
 
 	public static void main(String[] args) {
@@ -24,7 +23,6 @@ public class Main extends JFrame implements Runnable {
 		setSize(new Dimension(800, 600));
 		setLocationRelativeTo(null);
 
-		// Step.2 mainPanelを独自のCanvasに変える
 		mainPanel = new Canvas(getWidth(), getHeight());
 
 		JPanel contentPane = (JPanel) getContentPane();
@@ -32,7 +30,6 @@ public class Main extends JFrame implements Runnable {
 
 		setVisible(true);
 
-		 // 16msごとに更新（60fps）
         new Timer(16, (ActionEvent e) -> {
             mainPanel.repaint();
         }).start();
