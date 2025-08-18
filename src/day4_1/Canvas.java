@@ -3,7 +3,10 @@ package day4_1;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.Console;
 
@@ -28,18 +31,49 @@ public class Canvas extends JPanel {
 			particles[i] = new Rect(Math.random() * width, Math.random() * height, (Math.random() - 0.5) * 3, (Math.random() - 0.5) * 3, 8, 8, new Color(255, 150, 255));
 		}
 
-		addMouseMotionListener(new MouseMotionListener() {
+		// e.getPoint()メソッドで，マウス座標を取得可能
+		addMouseListener(new MouseListener() {
+			// 使わなくてもメソッドを書かないといけないのは，抽象化した状態では実装できないから
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				System.out.println("mouse released");
+			}
 
 			@Override
-			public void mouseMoved(MouseEvent e) {
-				// TODO Auto-generated method stub
+			public void mousePressed(MouseEvent e) {
+				System.out.println("mouse pressed");
+			}
 
+			@Override
+			public void mouseExited(MouseEvent e) {
+				System.out.println("mouse exited");
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				System.out.println("mouse entered");
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getClickCount() == 1) { // シングルクリックを想定
+					System.out.print("mouse clicked: ");
+					System.out.println(e.getPoint());
+				}
+			}
+		});
+
+		addMouseMotionListener(new MouseMotionListener() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				System.out.print("mouse moved: ");
+				System.out.println(e.getPoint());
 			}
 
 			@Override
 			public void mouseDragged(MouseEvent e) {
-				// TODO Auto-generated method stub
-
+				System.out.print("mouse dragged: ");
+				System.out.println(e.getPoint());
 			}
 		});
 	}
@@ -85,7 +119,6 @@ public class Canvas extends JPanel {
 						(int)particles[j].position.getX(),
 						(int)particles[j].position.getY()
 					);
-
 				}
 			}
 		}
