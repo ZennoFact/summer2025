@@ -6,7 +6,7 @@
 
 1. 2つのパーティクルの距離を出す。（三平方の定理）
     - 別名：ピタゴラスの定理
-    - a^{2} + b^{2} = c^{2}
+    - a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>
 
     ```java:Figure.java
 	public double getDistance(Figure target) {
