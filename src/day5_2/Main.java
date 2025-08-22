@@ -20,32 +20,8 @@ public class Main extends JFrame implements Runnable {
 	private JPanel mainPanel;
 
 	public static void main(String[] args) {
-		System.out.println("Hello World");
 
-		// データ読み込みをしてみる。 nioが便利でおすすめ。
-		Path path = Paths.get("./assets/data.csv");
-
-		List<String[]> dataset = new ArrayList<>();
-		try {
-			List<String> lines = Files.readAllLines(path, Charset.forName("UTF-8"));
-
-			for(int i = 1; i < lines.size(); i++) {
-				String[] row = lines.get(i).split(",");
-
-				if(row.length == 5) {
-					System.out.print(row[0] + ", ");
-					System.out.print(row[1] + ", ");
-					System.out.print(row[2] + ", ");
-					System.out.print(row[3] + ", ");
-					System.out.println(row[4]);
-					dataset.add(row);
-				}
-			}
-		} catch (IOException e) {
-			System.err.println("ファイル読み込みに失敗");
-		}
-
-		JFrame app = new Main(dataset);
+		JFrame app = new Main();
 	}
 
 	// コンストラクタも修正
@@ -59,7 +35,7 @@ public class Main extends JFrame implements Runnable {
 		setSize(new Dimension(800, 600));
 		setLocationRelativeTo(null);
 
-		mainPanel = new Canvas(getWidth(), getHeight(), dataset);
+		mainPanel = new Clock(getWidth(), getHeight(), dataset);
 
 		JPanel contentPane = (JPanel) getContentPane();
 		contentPane.add(mainPanel);
